@@ -67,3 +67,26 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 CMD ["./bin/rails", "server"]
+
+
+FROM ruby:3.3.4
+
+# Instalar dependências
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+
+# Configurar diretório de trabalho
+WORKDIR /app
+
+# Instalar gems
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+RUN bundle install
+
+# Copiar o código para o container
+COPY . /app
+
+# Expor a porta 3000
+EXPOSE 3000
+
+# Comando padrão ao iniciar o container
+CMD ["rails", "server", "-b", "0.0.0.0"]

@@ -2,6 +2,9 @@ require_relative "boot"
 
 require "rails/all"
 
+
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -15,6 +18,10 @@ module Blogstrap
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
+
+    config.action_controller.allow_forgery_protection = true
+    config.action_controller.default_protect_from_forgery = true
+
 
     # Configuration for the application, engines, and railties goes here.
     #
