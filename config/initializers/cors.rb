@@ -1,9 +1,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
-    puts "CORS middleware loaded"
+    puts "CORS middleware is loading for #{Rails.env} environment"
     allow do
-      origins 'https://upgraded-broccoli-97rggpxxwrgcp9xj-3030.app.github.dev',
-              'https://github.dev',
-              'https://upgraded-broccoli-97rggpxxwrgcp9xj-3030.app.github.dev/manifest.json' # ou você pode especificar um domínio específico
+      origins 'https://upgraded-broccoli-97rggpxxwrgcp9xj-3030.app.github.dev', 'https://localhost:3030'
       resource '*',
         headers: :any,
         methods: [:get, :post, :put, :patch, :delete, :options, :head],
