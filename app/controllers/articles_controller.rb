@@ -33,7 +33,13 @@ class ArticlesController < ApplicationController
     else 
       render :edit
     end
-    
+  end
+
+  def destroy
+    puts "Entrando no método destroy"
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to root_path
   end
 
 
