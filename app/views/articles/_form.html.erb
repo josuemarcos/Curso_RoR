@@ -15,6 +15,10 @@
     </div>
 
     <div>
+        <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "Selecione uma categoria" %>
+    </div>
+
+    <div>
         <%= form.submit%>
     </div>
 <%end%>
