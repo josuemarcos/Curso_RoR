@@ -57,11 +57,6 @@ class CategoriesController < ApplicationController
    else
     redirect_to categories_path, notice: @category.errors.messages[:base][0]
    end
-
-    
-  
-
-
   end
 
   private
