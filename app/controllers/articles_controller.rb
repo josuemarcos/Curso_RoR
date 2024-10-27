@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
@@ -15,7 +16,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: "Article was successfully created."
     else
       render :new
     end
@@ -28,7 +29,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to @article, notice: "Article was successfully updated."
     else 
       render :edit
     end

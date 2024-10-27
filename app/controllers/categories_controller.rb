@@ -55,7 +55,7 @@ class CategoriesController < ApplicationController
       format.json { head :no_content }
     end
    else
-    redirect_to categories_path, notice: @category.errors.messages[:base][0]
+    redirect_to categories_path, alert: @category.errors.messages[:base][0]
    end
   end
 
