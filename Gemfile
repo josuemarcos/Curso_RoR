@@ -16,9 +16,11 @@ gem "htmlbeautifier"
 
 gem "rack-cors"
 
+gem "sassc-rails", "~> 2.1"
+
 gem "jquery-rails"
 
-gem "sassc"
+gem "ffi", ">= 1.15"
 
 
 gem "pg", "~> 1.2"
@@ -74,4 +76,3 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
-
