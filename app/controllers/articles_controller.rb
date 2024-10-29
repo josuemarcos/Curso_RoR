@@ -10,11 +10,11 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     if @article.save
       redirect_to @article, notice: "Article was successfully created."
     else
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       redirect_to @article, notice: "Article was successfully updated."
-    else 
+    else
       render :edit
     end
   end
@@ -49,5 +49,4 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
   end
-
 end

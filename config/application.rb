@@ -26,8 +26,8 @@ module Blogstrap
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
-    #config.action_controller.allow_forgery_protection = true
-    #config.action_controller.default_protect_from_forgery = true
+    # config.action_controller.allow_forgery_protection = true
+    # config.action_controller.default_protect_from_forgery = true
 
 
     # Configuration for the application, engines, and railties goes here.
@@ -37,9 +37,6 @@ module Blogstrap
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.action_mailer.default_url_options = { host: 'localhost', port: 3030 }
-    
-
-    
+    # config.action_mailer.default_url_options = { host: 'localhost', port: 3030 }
   end
 end
